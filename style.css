@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------------------- BACKGROUND 3D PARALLAX ---------------------- */
+.layer {
+  position: fixed;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background-size: cover;
+  animation: floatBg 12s ease-in-out infinite alternate;
+}
+
+.layer-back {
+  background: radial-gradient(circle at top, #ff6ec7, #4b84ff, #00eaff);
+  z-index: -3;
+}
+.layer-mid {
+  background: radial-gradient(
+    circle at bottom right,
+    #ffd54f,
+    #ff7043,
+    #d500f9
+  );
+  mix-blend-mode: screen;
+  z-index: -2;
+}
+.layer-front {
+  background: linear-gradient(135deg, #ffffff22, #ffffff05);
+  backdrop-filter: blur(25px);
+  z-index: -1;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08) translateY(-20px);
+  }
+}
+
+/* ---------------------- FOTO BERGERAK 3D (BUATAN SENDIRI) ---------------------- */
+.floating-frame {
+  position: absolute;
+  top: 45%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  animation: frameFloat 6s ease-in-out infinite;
+}
+
+@keyframes frameFloat {
+  0% {
+    transform: translate(-50%, -50%) rotate(-2deg);
+  }
+  50% {
+    transform: translate(-50%, -60%) rotate(3deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-2deg);
+  }
+}
+
+/* Foto dibuat dengan gradient warna + pattern */
+.floating-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: radial-gradient(circle at 30% 30%, #fff, transparent 60%),
+    radial-gradient(circle at bottom, #ff0000, #6a00ff);
+  background-blend-mode: overlay;
+}
+
+/* ---------------------- TITLE GLOW ---------------------- */
+.title-box {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 25px 60px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 45px rgba(255, 255, 255, 0.7);
+  animation: glow 3s infinite alternate;
+}
+
+.title-box h1 {
+  font-size: 68px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px white, 0 0 35px #ff004c;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px #fff;
+  }
+  100% {
+    box-shadow: 0 0 60px #ff6699;
+  }
+}
+
+/* ---------------------- ANIMASI SANTA ---------------------- */
+.santa {
+  position: absolute;
+  top: 20%;
+  left: -200px;
+  width: 220px;
+  height: 120px;
+  background: radial-gradient(circle, #ff1744, #c51162);
+  border-radius: 60px;
+  animation: flySanta 11s linear infinite;
+  box-shadow: 0 0 25px #ff80ab;
+}
+
+@keyframes flySanta {
+  0% {
+    left: -250px;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1) translateY(-20px);
+  }
+  100% {
+    left: 110%;
+    transform: scale(1);
+  }
+}
+
+/* ---------------------- LILIN ---------------------- */
+.candle {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  width: 40px;
+  height: 70px;
+  background: #fff4d6;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #ffe9b9;
+}
+
+.flame {
+  width: 22px;
+  height: 35px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffca28, #ff6d00);
+  position: absolute;
+  top: -30px;
+  left: 9px;
+  animation: flicker 0.12s infinite alternate;
+}
+
+@keyframes flicker {
+  from {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.15) rotate(6deg);
+    opacity: 1;
+  }
+}
+
+/* ---------------------- KADO ---------------------- */
+.gift {
+  position: absolute;
+  bottom: 30px;
+  right: 80px;
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(to bottom right, #ff1744, #ffea00);
+  border-radius: 15px;
+  animation: popUp 3s ease-out forwards;
+}
+
+@keyframes popUp {
+  from {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------------------- BOKEH ---------------------- */
+.bokeh-area::before,
+.bokeh-area::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #fff4, transparent 70%);
+  filter: blur(35px);
+  animation: bokehMove 6s infinite alternate;
+}
+
+@keyframes bokehMove {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: translateX(25px) scale(1.1);
+  }
+}
+
+/* ---------------------- SALJU ---------------------- */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 14px;
+  animation: fall linear infinite;
+  text-shadow: 0 0 6px #00eaff, 0 0 10px #fff;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
